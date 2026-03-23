@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor Veterinària</title>
+    <script type="module" src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Afegir animal nou</h1>
+        <form id="formulari-animal" enctype="multipart/form-data">
+            <input name="nom" placeholder="Nom" required>
+            <input name="especie" placeholder="Espècie" required>
+            <input name="edat" type="number" placeholder="Edat" required>
+            <input name="propietari" placeholder="Propietari" required>
+            <input name="observacions" placeholder="Observacions">
+            <input name="imatge" type="file" accept="image/*">
+            <button type="submit">Afegir</button>
+            <p id="missatge" class="missatge"></p>
+        </form>
+        <br>
+        <hr>
+        <br>
+        <h1>Animals registrats</h1>
+        <div id="llista-animals">
+            <table class="taula-animals">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Espècie</th>
+                        <th>Edat</th>
+                        <th>Propietari</th>
+                        <th>Observacions</th>
+                        <th>Imatge</th>
+                        <th>Accions</th>
+                    </tr>
+                </thead>
+                <tbody id="cos-taula-animals">
+                    <!-- Datos de los animales -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>

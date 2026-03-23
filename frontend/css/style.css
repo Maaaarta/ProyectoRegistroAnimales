@@ -1,0 +1,149 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('../IMG/1382622.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 227, 243, 0.5);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    background-color: #86003f;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form input, form button {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #db4885;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button:hover {
+    background-color: #a01a4d;
+}
+
+.missatge {
+    color: rgb(94, 3, 63);
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fee0f5;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.animal-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.imatge-animal {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #eca7db;
+}
+
+/*Estilo general de la tabla*/
+.taula-animals {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* titulo */
+.taula-animals th {
+    background-color: #86003f;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Celdas */
+.taula-animals td {
+    border: 1px solid #460630;
+    padding: 10px;
+}
+
+/* Zebra striping  en las celdas*/
+.taula-animals tbody tr:nth-child(odd) {
+    background-color: #ffbbee; /* más claro */
+}
+
+.taula-animals tbody tr:nth-child(even) {
+    background-color: #f894da; /* original */
+}
+
+/* Imagen del animal */
+.taula-animals img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #f0b5e3;
+}
+
+.boto-editar {
+    background-color: #ee51ac;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boto-editar:hover {
+    background-color: #b61d83;
+}
+
+.boto-eliminar {
+    background-color: #d45279;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boto-eliminar:hover {
+    background-color: #77142a;
+}

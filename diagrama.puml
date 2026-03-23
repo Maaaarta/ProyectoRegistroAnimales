@@ -1,0 +1,99 @@
+@startuml
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+
+title UML - Gestió d'Animals Veterinària (Full Stack)
+
+package Backend {
+    class Animal {
+        - nom: String
+        - especie: String
+        - edat: Number
+        - propietari: String
+        - observacions: String
+        + constructor()
+    }
+
+    class AnimalModel {
+        + find(): Promise<List<Animal>>
+        + findByIdAndUpdate(id: String, data: Object): Promise<Animal>
+        + findByIdAndDelete(id: String): Promise<void>
+        + save(): Promise<Animal>
+    }
+
+    class AnimalController {
+        + getAllAnimals(req, res)
+        + createAnimal(req, res)
+        + updateAnimal(req, res)
+        + deleteAnimal(req, res)
+    }
+
+    class ApiRoutes {
+        + GET /animals
+        + POST /animals
+        + PUT /animals/:id
+        + DELETE /animals/:id
+    }
+
+    class DBConfig {
+        + connectDB(): Promise<void>
+    }
+
+    class AppServer {
+        + use(cors)
+        + use(express.json)
+        + use('/api', ApiRoutes)
+        + listen(PORT)
+    }
+
+    AnimalModel -up-|> Animal
+    AnimalController --> AnimalModel
+    ApiRoutes --> AnimalController
+    AppServer --> ApiRoutes
+    AppServer --> DBConfig
+}
+
+package Frontend {
+    class Model {
+        + obtenirAnimals(): Promise<List<Animal>>
+        + afegirAnimal(animal): Promise<Animal>
+        + actualitzarAnimal(id, animal): Promise<Animal>
+        + eliminarAnimal(id): Promise<void>
+    }
+
+    class View {
+        + mostrarAnimals(animals, onEdit, onDelete)
+        + configurarFormulari(onSubmit)
+    }
+
+    class ViewModel {
+        + inicialitzarApp()
+        - carregarAnimals()
+        - manejarNouAnimal(animal)
+        - prepararEdicio(animal)
+        - manejarEliminar(id)
+    }
+
+    class MainJS {
+        + DOMContentLoaded -> inicialitzarApp()
+    }
+
+    class AnimalFrontendDTO {
+        - nom: String
+        - especie: String
+        - edat: Number
+        - propietari: String
+        - observacions: String
+    }
+
+    ViewModel --> Model
+    ViewModel --> View
+    MainJS --> ViewModel
+    Model --> AnimalFrontendDTO
+    View --> AnimalFrontendDTO
+}
+
+Backend.AppServer ..> Frontend.Model : API REST
+Frontend.Model ..> Backend.AnimalController : fetch()
+
+@enduml
